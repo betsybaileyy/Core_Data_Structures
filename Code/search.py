@@ -42,22 +42,18 @@ def binary_search(array, item):
 # to verify that your iterative implementation passes all tests
 def binary_search_iterative(array, item): # assumes list is sorted to search through
 
-    middle_index = len(array)//2
-
-    value = array[middle_index]
-
-    while value is not None:
-        if value == item:
-            return value
-        elif item > value:
-            # value += 1
-            value = value + 1
-        # return value
-        elif item < value:
-            # value -= 1
-            value = value - 1
-            # return value
-
+    halved = len(array) // 2
+    likley_hood = len(array) -1
+    while likley_hood != 0:
+        if item == array[halved]:
+            return halved
+        elif item < array[halved]:
+            halved = halved // 2
+            likley_hood -= 1
+        else:
+            halved = halved + (len(array) - halved) // 2
+            likley_hood -= 1
+    return None
 
 
 
@@ -66,21 +62,21 @@ def binary_search_iterative(array, item): # assumes list is sorted to search thr
 # to verify that your recursive implementation passes all tests
 def binary_search_recursive(array, item, left=None, right=None):
 
-    if left == None:
-        left = 0
     if right == None:
         right = len(array) - 1
-    if right - left <= 0:
+        left = 0
+    elif left > right:
         return None
 
-    middle_index = (right + left) // 2
-    value = array[middle_index]
+    med_index = (right + left) // 2
+    med_value = array[med_index]
 
-    if value == item:
-        return middle_index
-    elif item > value:
-        value += 1
-        return binary_search_recursive(array, item, left, middle_index-1)
-    elif item < value:
-        value -= 1
-        return binary_search_recursive(array, item, middle_index+1, right)
+
+    if med_value == item:
+        return med_index
+    elif item > med_value:
+        left = med_index + 1
+    elif item < med_value:
+        right = med_index -1
+
+    return binary_search_recursive(array, item, left, right)
