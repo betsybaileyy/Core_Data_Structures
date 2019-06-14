@@ -15,14 +15,18 @@ def decode(digits, base):
     digits: str -- string representation of number (in given base)
     base: int -- base of given number
     return: int -- integer representation of number (in base 10)"""
-    # Handle up to base 36 [0-9a-z]
-    assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
-    # TODO: Decode digits from binary (base 2)
-    # ...
-    # TODO: Decode digits from hexadecimal (base 16)
-    # ...
-    # TODO: Decode digits from any base (2 up to 36)
-    # ...
+    answer = 0 
+
+    rev_digits = digits[::-1]
+    for i in range(len(rev_digits)):
+        value = rev_digits[i]
+        int_value = int(value, base)
+        base_pow = base**i
+        decoded_binary_index = int_value*base_pow
+        print(type(decoded_binary_index))
+        answer = answer + int(decoded_binary_index)
+    return answer
+
 
 
 def encode(number, base):
