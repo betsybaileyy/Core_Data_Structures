@@ -79,15 +79,17 @@ class LinkedList(object):
         if not (0 <= index < self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node at the given index and return its data
-        go to the index Number
-        get the value stored in that nodes
+        # go to the index Number
+        # get the value stored in that nodes
 
-        for each node in linked list:
-            if index of node = index passed in :
-                return node.data
+        curr_node = self.head #initalizing as head of list
+         # at index 0
+        while index > 0:
+            curr_node = curr_node.next
+            index -= 1
 
-
-        return node.data()
+        return curr_node.data
+        # return node.data()
 
     def insert_at_index(self, index, item):
         """Insert the given item at the given index in this linked list, or
@@ -111,6 +113,7 @@ class LinkedList(object):
             new_node.next = node.next
             node.next = new_node
             self.size += 1
+
     def append(self, item):
         """Insert the given item at the tail of this linked list.
         Best and worst case running time: ??? under what conditions? [TODO]"""
@@ -164,9 +167,13 @@ class LinkedList(object):
         using the same node, or raise ValueError if old_item is not found.
         Best case running time: ??? under what conditions? [TODO]
         Worst case running time: ??? under what conditions? [TODO]"""
-        # TODO: Find the node containing the given old_item and replace its
-        # data with new_item, without creating a new node object
-        pass
+        node = self.head # initalizing the current item as the head
+        while node is not None:
+            if node.data == old_item:
+                node.data = new_item
+                return
+            node = node.next # initalizing as the next node (pretty much)
+        raise ValueError('Item not found: {}'.format(old_item))
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
