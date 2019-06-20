@@ -18,17 +18,30 @@ def is_palindrome(text):
 
 
 def is_palindrome_iterative(text):
-    # TODO: implement the is_palindrome function iteratively here
-    pass
-    # once implemented, change is_palindrome to call is_palindrome_iterative
-    # to verify that your iterative implementation passes all tests
+    # implement the is_palindrome function iteratively here
+    left_index = 0
+    right_index = len(text) -1
+
+    while left_index <= right_index:
+        if text[left_index] == text[right_index]: #check that both indexes match
+            #continue the loop by moving to next index
+            left_index += 1
+            right_index -= 1
+        else: #if not, cancel the function bc we immiedetly know it is not a palindrome
+            return False
+    return True
 
 
 def is_palindrome_recursive(text, left=None, right=None):
-    # TODO: implement the is_palindrome function recursively here
-    pass
-    # once implemented, change is_palindrome to call is_palindrome_recursive
-    # to verify that your iterative implementation passes all tests
+    if right == None:
+        left = 0
+        right = len(text) - 1
+    if left >= right:
+        return True
+    if text[right] == text[left]:
+        return is_palindrome_recursive(text, left + 1, right - 1)
+    else:
+        return False
 
 
 def main():
