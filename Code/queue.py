@@ -10,6 +10,7 @@ class LinkedQueue(object):
     def __init__(self, iterable=None):
         """Initialize this queue and enqueue the given items, if any."""
         # Initialize a new linked list to store the items
+        self.size = 0
         self.list = LinkedList()
         if iterable is not None:
             for item in iterable:
@@ -19,7 +20,7 @@ class LinkedQueue(object):
         """Return a string representation of this queue."""
         return 'Queue({} items, front={})'.format(self.length(), self.front())
 
-def is_empty(self):
+    def is_empty(self):
         """Return True if this queue is empty, or False otherwise."""
         #  Check if empty
         return self.size == 0
@@ -120,5 +121,5 @@ class ArrayQueue(object):
 
 # Implement LinkedQueue and ArrayQueue above, then change the assignment below
 # to use each of your Queue implementations to verify they each pass all tests
-# Queue = LinkedQueue
-Queue = ArrayQueue
+Queue = LinkedQueue
+# Queue = ArrayQueue
