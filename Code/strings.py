@@ -7,12 +7,32 @@ def contains(text, pattern):
     # TODO: Implement contains here (iteratively and/or recursively)
 
 
-def find_index(text, pattern):
+def find_index(text, pattern, offset=0):
     """Return the starting index of the first occurrence of pattern in text,
     or None if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    # TODO: Implement find_index here (iteratively and/or recursively)
+    # Implement find_index here (iteratively and/or recursively)
+    if(len(pattern) == 0):
+        return offset
+
+    for i in range(offset, len(text) - len(pattern) + 1):
+        if(text[i] == pattern[0]):
+
+            no_misses = True  #assumption that pattern matches
+            for j in range(len(pattern)): # j is the index number in the pattern, not the text
+
+                # checking if pattern matches incrementally
+                if(pattern[j] != text[i + j]): # i is the index of the text, and j is index of pattern, so, added, they equal the correct index of the text snippet that we are looking for
+
+                    no_misses = False # assumption is wrong
+                    break
+
+            if(no_misses): # if assumption is true
+                return i
+
+    return None
+
 
 
 def find_all_indexes(text, pattern):
