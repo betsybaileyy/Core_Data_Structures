@@ -1,7 +1,8 @@
 #!python
 
 def linear_search(array, item):
-    """return the first index of item in array or None if item is not found"""
+    """return the first index of item in array or None if item is not found
+    O(n) because we are going through each item"""
     # implement linear_search_iterative and linear_search_recursive below, then
     # change this to call your implementation to verify it passes all tests
     return linear_search_iterative(array, item)
@@ -9,6 +10,7 @@ def linear_search(array, item):
 
 
 def linear_search_iterative(array, item):
+    """O(n) beacuse we are iterating through each item"""
     # loop over all array values until item is found
     for index, value in enumerate(array):
         if item == value:
@@ -17,6 +19,7 @@ def linear_search_iterative(array, item):
 
 
 def linear_search_recursive(array, item, index=0):
+    """O(1) beacuse we are recursing here"""
     # implement linear search recursively here
     if item is not None:
         if item == array[index]:
