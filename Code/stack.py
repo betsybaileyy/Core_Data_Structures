@@ -15,7 +15,7 @@ class LinkedStack(object):
             for item in iterable:
                 self.push(item)
 
-        def __repr__(self):
+    def __repr__(self):
         """Return a string representation of this stack."""
         return 'Stack({} items, top={})'.format(self.length(), self.peek())
 
