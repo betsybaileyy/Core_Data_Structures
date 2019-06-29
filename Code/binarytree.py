@@ -209,7 +209,7 @@ class BinarySearchTree(object):
             # Recursively descend to the node's right child, if it exists
             if node is not None:
                 return self._find_parent_node_recursive(item, node=node.left, parent=node)
-            return ...  # Hint: Remember to update the parent parameter
+              # Hint: Remember to update the parent parameter
 
     def delete(self, item):
         """Remove given item from this tree, if present, or raise ValueError.
