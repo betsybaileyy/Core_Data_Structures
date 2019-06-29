@@ -16,7 +16,7 @@ def is_palindrome(text):
     assert isinstance(text, str), 'input is not a string: {}'.format(text)
     clean_text = re.sub('[^A-Za-z0-9]+', '', text).lower()
     return is_palindrome_iterative(clean_text)
-    # return is_palindrome_recursive(text)
+    # return is_palindrome_recursive(clean_text)
 
 
 def is_palindrome_iterative(text):
