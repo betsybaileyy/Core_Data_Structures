@@ -36,7 +36,7 @@ class DoublyLinkedList(object):
             self.head = new_node
 
         self.size += 1
-
+        '''and then everybody clapped'''
 
 
     def find():
