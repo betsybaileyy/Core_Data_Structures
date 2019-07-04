@@ -1,4 +1,5 @@
 
+# getting the computer's default dictionary and
 def get_file_lines(filename='/usr/share/dict/words'):
     """Return a set from the given text file with
     any leading and trailing whitespace characters removed from each line."""
@@ -8,7 +9,11 @@ def get_file_lines(filename='/usr/share/dict/words'):
     new_set = set(lines)
     return lines
 
+# getting all the possible permutations of the current word
 def all_perms(word):
+'''
+Taking each possible permutation of the word we are given
+'''
    if len(word) <=1:
        return word
    else:
