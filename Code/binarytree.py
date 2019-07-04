@@ -27,7 +27,7 @@ class BinaryTreeNode(object):
     def height(self):
         """Return the height of this node (the number of edges on the longest
         downward path from this node to a descendant leaf node).
-        TODO: Best and worst case running time: ??? under what conditions?"""
+        Best and worst case running time: O(1), constant time because our operation can execute in one concise step"""
         right_len = 0
         left_len = 0
         # Check if left child has a value and if so calculate its height
@@ -61,7 +61,7 @@ class BinarySearchTree(object):
     def height(self):
         """Return the height of this tree (the number of edges on the longest
         downward path from this tree's root node to a descendant leaf node).
-        TODO: Best and worst case running time: ??? under what conditions?"""
+        Best and worst case running time: O(1), constant time because our operation can execute in one concise step"""
         # Check if root node has a value and if so calculate its height
         if not self.is_empty():
             return self.root.height()
@@ -69,8 +69,8 @@ class BinarySearchTree(object):
 
     def contains(self, item):
         """Return True if this binary search tree contains the given item.
-        TODO: Best case running time: ??? under what conditions?
-        TODO: Worst case running time: ??? under what conditions?"""
+        Best case running time: O(1), constant time
+        Worst case running time: O(n), linear time"""
         # Find a node with the given item, if any
         node = self._find_node_recursive(item, self.root)
         # Return True if a node was found, or False
@@ -79,8 +79,7 @@ class BinarySearchTree(object):
     def search(self, item):
         """Return an item in this binary search tree matching the given item,
         or None if the given item is not found.
-        TODO: Best case running time: ??? under what conditions?
-        TODO: Worst case running time: ??? under what conditions?"""
+        Best case running time: O(log n)"""
         # Find a node with the given item, if any
         node = self._find_node_recursive(item, self.root)
         # Return the node's data if found, or None
@@ -88,8 +87,8 @@ class BinarySearchTree(object):
 
     def insert(self, item):
         """Insert the given item in order into this binary search tree.
-        TODO: Best case running time: ??? under what conditions?
-        TODO: Worst case running time: ??? under what conditions?"""
+        Best case running time: O(log n)
+        """
         # Handle the case where the tree is empty
         if self.is_empty():
             # Create a new root node
