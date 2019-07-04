@@ -1,5 +1,6 @@
 #!python
-
+from queue import LinkedQueue
+import math
 
 class BinaryTreeNode(object):
 
@@ -27,6 +28,8 @@ class BinaryTreeNode(object):
         """Return the height of this node (the number of edges on the longest
         downward path from this node to a descendant leaf node).
         TODO: Best and worst case running time: ??? under what conditions?"""
+        right_len = 0
+        left_len = 0
         # Check if left child has a value and if so calculate its height
         if self.left is not None:
             left_len = self.left.height() + 1
@@ -194,7 +197,7 @@ class BinarySearchTree(object):
         # Check if starting node exists
         if node is None:
             # Not found (base case)
-            return None
+            return parent
         # Check if the given item matches the node's data
         if item == node.data:
             # Return the parent of the found node
@@ -208,7 +211,7 @@ class BinarySearchTree(object):
         elif item > node.data:
             # Recursively descend to the node's right child, if it exists
             if node is not None:
-                return self._find_parent_node_recursive(item, node=node.left, parent=node)
+                return self._find_parent_node_recursive(item, node=node.right, parent=node)
               # Hint: Remember to update the parent parameter
 
     def delete(self, item):
